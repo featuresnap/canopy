@@ -1,8 +1,15 @@
 ﻿module nunitreportertests
 
 open NUnit.Framework
+open Swensen.Unquote
+
+
+
+type NUnitReporter() = class end
 
 [<Test>]
-let ``true is true``() = 
-    Assert.True(true)
+let ``can instantiate reporter``() =
+    let reporter = new NUnitReporter()
+    test <@ Some(reporter) |> Option.isSome @>
+   
 
